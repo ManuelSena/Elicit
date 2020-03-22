@@ -1,16 +1,18 @@
 {
-  "name": "elicitpodcast",
+  "name": "elicit",
   "version": "1.0.0",
-  "description": "Elicit Podcast",
+  "description": "Elicit Web",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
+    "csstype": "^2.6.9",
     "jquery": "^3.3.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-router": "^3.2.0",
     "toastr": "^2.1.4",
+    "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1"
   },
   "devDependencies": {
@@ -35,6 +37,6 @@
   "scripts": {
     "start": "webpack-dev-server"
   },
-  "author": "Manuel Sena III",
+  "author": "me",
   "license": "ISC"
 }

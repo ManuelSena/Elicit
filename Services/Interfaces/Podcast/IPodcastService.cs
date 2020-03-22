@@ -6,7 +6,7 @@ namespace ElicitPodcast.Services.Podcast
 {
     public interface IPodcastService
     {
-        List<ElicitPodcast> ReadAll();
+        List<Podcast> ReadAll();
         //List<Podcast> ReadById(int id);
         int Post(PodcastAddRequest model);
         int Put(PodcastUpdateRequest model);

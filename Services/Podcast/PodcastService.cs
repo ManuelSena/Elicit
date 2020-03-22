@@ -9,14 +9,14 @@ namespace ElicitPodcast.Services.Podcast
 {
     public class PodcastService : BaseService, IPodcastService   
     {
-        public List<ElicitPodcast> ReadAll()
+        public List<Podcast> ReadAll()
         {
-            return Adapter.LoadObject<ElicitPodcast>("dbo.Elicit_Podcast_SelectAll");
+            return Adapter.LoadObject<Podcast>("dbo.Elicit_Podcast_SelectAll");
         }
 
-        public ElicitPodcast ReadById(int id)
+        public Podcast ReadById(int id)
         {
-            return Adapter.LoadObject<ElicitPodcast>(
+            return Adapter.LoadObject<Podcast>(
                 "Elicit_Podcast_SelectById",
                 new[] { SqlDbParameter.Instance.BuildParameter("@Id", id, System.Data.SqlDbType.Int) }).FirstOrDefault();
         }

@@ -129,7 +129,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -138,6 +137,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap.min.css" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -154,7 +154,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\Api\HomeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\Podcast\PodcastController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -169,7 +169,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\Interfaces\Podcast\IPodcastService.cs" />
-    <Compile Include="Services\Podcast\ElicitPodcast.cs" />
+    <Compile Include="Services\Podcast\Podcast.cs" />
     <Compile Include="Services\Podcast\PodcastService.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -219,7 +219,7 @@
     <TypeScriptCompile Include="src\interfaces\index.tsx" />
     <TypeScriptCompile Include="src\interfaces\inputprops\IInputProps.tsx" />
     <TypeScriptCompile Include="src\interfaces\keyvalue\IKeyValue.tsx" />
-    <TypeScriptCompile Include="src\interfaces\podcast\IPodcastListForm.tsx" />
+    <TypeScriptCompile Include="src\interfaces\podcast\IPodcastList.tsx" />
     <TypeScriptCompile Include="src\interfaces\textareaprops\ITextAreaProps.tsx" />
     <TypeScriptCompile Include="src\router.tsx" />
   </ItemGroup>

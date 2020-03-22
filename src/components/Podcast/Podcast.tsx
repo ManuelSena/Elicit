@@ -1,8 +1,6 @@
 ﻿import * as React from "react";
 import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../api/PodcastApi";
-import { PodcastForm } from "./PodcastForm";
-import { PodcastList } from "./PodcastList";
-
+import { PodcastForm, PodcastList } from "./index";
 
 export interface IPodcastListState {
     podcastList: IPodcastList;
@@ -16,7 +14,7 @@ export interface IPodcastList {
 }
 
 
-export class ElicitPodcast extends React.Component<{}, IPodcastListState>{
+export class Podcast extends React.Component<{}, IPodcastListState>{
     constructor(props) {
         super(props);
         this.state = {

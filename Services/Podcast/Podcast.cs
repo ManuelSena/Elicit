@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ElicitPodcast.Services.Podcast
 {
-    public class ElicitPodcast
+    public class Podcast
     {
         public int Id { get; set; }
         public string TypeName { get; set; }
