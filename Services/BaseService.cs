@@ -13,7 +13,7 @@ namespace ElicitPodcast.Services
             get
             {
                 return new EDbAdapter(new SqlCommand(),
-                    new SqlConnection("Server=localhost\\SQLEXPRESS;" + "Initial Catalog = ;" + "Integrated Security = True;"));
+                    new SqlConnection("Server=localhost\\SQLEXPRESS;" + "Initial Catalog = Elicit;" + "Integrated Security = True;"));
 
             }
         }
