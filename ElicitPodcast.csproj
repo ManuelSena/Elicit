@@ -25,7 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
-    <TypeScriptToolsVersion>2.6</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -128,8 +128,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\img\chalkboard.jpg" />
+    <Content Include="assets\img\elicitlogoRED.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="elicitRSS.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -137,7 +142,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="elicitAppleRSS.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -154,23 +161,45 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\Api\AboutUs\AboutUsController.cs" />
+    <Compile Include="Controllers\Api\ContactUs\ContactUsController.cs" />
+    <Compile Include="Controllers\Api\PrivatePolicy\PrivatePolicyPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\Podcast\PodcastController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Response\AboutUs\AboutUsAddRequest.cs" />
+    <Compile Include="Models\Response\AboutUs\AboutUsUpdateRequest.cs" />
     <Compile Include="Models\Response\BaseResponse.cs" />
+    <Compile Include="Models\Response\ContactUs\ContactUsRequest.cs" />
     <Compile Include="Models\Response\Error\ErrorResponse.cs" />
     <Compile Include="Models\Response\Items\ItemsResponse.cs" />
     <Compile Include="Models\Response\Item\ItemResponse.cs" />
     <Compile Include="Models\Response\Podcast\PodcastAddRequest.cs" />
     <Compile Include="Models\Response\Podcast\PodcastUpdateRequest.cs" />
+    <Compile Include="Models\Response\PrivatePolicy\PrivatePolicyAddRequest.cs" />
+    <Compile Include="Models\Response\PrivatePolicy\PrivatePolicyUpdateRequest.cs" />
     <Compile Include="Models\Response\Success\SuccessResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AboutUs\AboutUs.cs" />
+    <Compile Include="Services\AboutUs\AboutUsService.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\ContactUs\EmailContentData.cs" />
+    <Compile Include="Services\ContactUs\EmailUserData.cs" />
+    <Compile Include="Services\ContactUs\GmailContentData.cs" />
+    <Compile Include="Services\ContactUs\GmailService.cs" />
+    <Compile Include="Services\ContactUs\SendGridData.cs" />
+    <Compile Include="Services\ContactUs\SendGridDataService.cs" />
+    <Compile Include="Services\Interfaces\AboutUs\IAboutUsService.cs" />
+    <Compile Include="Services\Interfaces\Email\IGmailService.cs" />
     <Compile Include="Services\Interfaces\Podcast\IPodcastService.cs" />
+    <Compile Include="Services\Interfaces\PrivatePolicy\IPrivatePolicyService.cs" />
     <Compile Include="Services\Podcast\Podcast.cs" />
     <Compile Include="Services\Podcast\PodcastService.cs" />
+    <Compile Include="Services\PrivatePolicy\PrivatePolicyPage.cs" />
+    <Compile Include="Services\PrivatePolicy\PrivatePolicyService.cs" />
+    <Compile Include="Services\Tools\UploadFileAws.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">
@@ -185,6 +214,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,10 +224,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\Response\Email\" />
+    <Folder Include="Services\Email\" />
+    <Folder Include="Services\Interfaces\ContactUs\" />
+    <Folder Include="src\components\Modal\" />
+    <Folder Include="Views\Contact\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="src\api\aboutus\AboutUsApi.tsx" />
     <TypeScriptCompile Include="src\api\apiExecute.tsx" />
+    <TypeScriptCompile Include="src\api\contactus\ContactUsApi.tsx" />
     <TypeScriptCompile Include="src\api\podcast\PodcastApi.tsx" />
+    <TypeScriptCompile Include="src\api\privatepolicy\PrivatePolicyApi.tsx" />
     <TypeScriptCompile Include="src\app.tsx" />
     <TypeScriptCompile Include="src\common\components\form\button.tsx" />
     <TypeScriptCompile Include="src\common\components\form\input.tsx" />
@@ -205,21 +243,38 @@
     <TypeScriptCompile Include="src\common\components\form\index.tsx" />
     <TypeScriptCompile Include="src\common\components\form\password.tsx" />
     <TypeScriptCompile Include="src\common\components\form\textarea.tsx" />
-    <TypeScriptCompile Include="src\components\About\about.tsx" />
-    <TypeScriptCompile Include="src\components\Api\PodcastApi.tsx" />
-    <TypeScriptCompile Include="src\components\header.tsx" />
+    <TypeScriptCompile Include="src\components\AboutUs\AboutUsForm.tsx" />
+    <TypeScriptCompile Include="src\components\AboutUs\AboutUsPage.tsx" />
+    <TypeScriptCompile Include="src\components\Banners\GreyBanner.tsx" />
+    <TypeScriptCompile Include="src\components\ContactUs\ContactUs.tsx" />
+    <TypeScriptCompile Include="src\components\ContactUs\ContactUsForm.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\ContactUs\IContactUs.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\index.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\Podcast\IPodcastList.tsx" />
+    <TypeScriptCompile Include="src\components\PictureSlides\PictureSlides.tsx" />
+    <TypeScriptCompile Include="src\components\Footer\FooterContainer.tsx" />
+    <TypeScriptCompile Include="src\components\Header\header.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\index.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\Podcast.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\PodcastForm.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\PodcastList.tsx" />
     <TypeScriptCompile Include="src\components\Home\Home.tsx" />
+    <TypeScriptCompile Include="src\components\PrivatePolicy\index.tsx" />
+    <TypeScriptCompile Include="src\components\PrivatePolicy\PrivatePolicy.tsx" />
+    <TypeScriptCompile Include="src\components\PrivatePolicy\PrivatePolicyList.tsx" />
+    <TypeScriptCompile Include="src\components\PrivatePolicy\PrivatePolicyModal.tsx" />
+    <TypeScriptCompile Include="src\components\RssFeed\RssFeed.tsx" />
     <TypeScriptCompile Include="src\index.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\AboutUs\IAboutUsPage.tsx" />
     <TypeScriptCompile Include="src\interfaces\button\IButtonProps.tsx" />
     <TypeScriptCompile Include="src\interfaces\dropdown\IDropDownListProps.tsx" />
+    <TypeScriptCompile Include="src\interfaces\gridview\IGridView.tsx" />
     <TypeScriptCompile Include="src\interfaces\index.tsx" />
     <TypeScriptCompile Include="src\interfaces\inputprops\IInputProps.tsx" />
     <TypeScriptCompile Include="src\interfaces\keyvalue\IKeyValue.tsx" />
     <TypeScriptCompile Include="src\interfaces\podcast\IPodcastList.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\PrivatePolicy\IPrivatePolicyPage.tsx" />
+    <TypeScriptCompile Include="src\interfaces\privatepolicy\IPrivatePolicy.tsx" />
     <TypeScriptCompile Include="src\interfaces\textareaprops\ITextAreaProps.tsx" />
     <TypeScriptCompile Include="src\router.tsx" />
   </ItemGroup>

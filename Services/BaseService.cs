@@ -12,9 +12,12 @@ namespace ElicitPodcast.Services
         {
             get
             {
+           
                 return new EDbAdapter(new SqlCommand(),
-                    new SqlConnection("Server=localhost\\SQLEXPRESS;" + "Initial Catalog = Elicit;" + "Integrated Security = True;"));
-
+                    new SqlConnection("Data Source = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3"));
+                // Data Source = elicitapp.cxtivv0uiqhh.us - west - 1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3
+                // Server = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com,1433; Database = ElicitWeb; User Id = masterd; Password = 
+                // Server=localhost\\SQLEXPRESS;" + "Initial Catalog = Elicit;" + "Integrated Security = True;
             }
         }
 

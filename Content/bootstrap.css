@@ -1,4 +1,5 @@
 ﻿/* NUGET: BEGIN LICENSE TEXT
+/* NUGET: BEGIN LICENSE TEXT
  *
  * Microsoft grants you the right to use these script files for the sole
  * purpose of either: (i) interacting through your browser with the Microsoft
@@ -428,7 +429,7 @@ p {
     line-height: 1.4;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 789px) {
     .lead {
         font-size: 21px;
     }
@@ -625,7 +626,7 @@ dd {
     margin-left: 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 789px) {
     .dl-horizontal dt {
         float: left;
         width: 160px;
@@ -779,10 +780,38 @@ pre {
 }
 
 .container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
+    /*padding-right: 15px;
+    padding-left: 15px;*/
+   padding-top: 30%;
+}
+
+
+.overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.7);
+    z-index: 10;
+}
+
+/*@media (min-width: 789px) {
+    .container {
+        width: 750px;
+    }
+}*/
+
+@media (min-width: 992px) {
+    .container {
+        width: 789px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
 }
 
     .container:before,
@@ -946,7 +975,7 @@ pre {
     width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 789px) {
     .container {
         max-width: 750px;
     }
@@ -1839,7 +1868,6 @@ input[type="radio"],
 input[type="checkbox"] {
     margin: 4px 0 0;
     margin-top: 1px \9;
-    /* IE8-9 */
     line-height: normal;
 }
 
@@ -4382,7 +4410,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
         text-decoration: none;
     }
 
-@media (min-width: 768px) {
+@media (min-width: 789px) {
     .navbar > .container .navbar-brand {
         margin-left: -15px;
     }
@@ -5145,7 +5173,7 @@ a.list-group-item.active > .badge,
     border-radius: 6px;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 789px) {
     .jumbotron {
         padding-top: 48px;
         padding-bottom: 48px;

@@ -4,7 +4,9 @@ import { IButtonProps } from "../../../interfaces";
 
 export const Button: React.StatelessComponent<IButtonProps> = (props) => {
     return (
-        <button type="button"
+        <button
+            style={{ color: "black" }}
+            type="button"
             className={props.className}
             onClick={props.onClick}
         >

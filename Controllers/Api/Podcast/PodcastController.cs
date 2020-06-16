@@ -13,12 +13,12 @@ using System.Web.Http;
 namespace ElicitPodcast.Controllers.Podcast.Api
 {
     [RoutePrefix("api/podcast")]
-    public class ProjectController : ApiController
+    public class PodcastController : ApiController
     {
 
         IPodcastService _podcastService;
 
-        public ProjectController(IPodcastService podcastService)
+        public PodcastController(IPodcastService podcastService)
         {
             _podcastService = podcastService;
         }
@@ -66,7 +66,11 @@ namespace ElicitPodcast.Controllers.Podcast.Api
         {
             try
             {
-                _podcastService.Put(model);
+                if (!ModelState.IsValid) { return BadRequest(ModelState); }
+                ItemResponse<int> response = new ItemResponse<int>
+                {
+                    Item = _podcastService.Put(model)
+                };
                 return Ok();
             }
             catch (Exception ex)

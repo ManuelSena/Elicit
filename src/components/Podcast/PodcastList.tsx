@@ -1,5 +1,5 @@
 ﻿import * as React from "react";
-import { IPodcastList } from "./Podcast";
+import { IPodcastList } from "../../Components/Interfaces/index";
 
 export interface IPodcastListGridViewOptions<T> {
     dataItems: T[];
@@ -18,14 +18,14 @@ export const PodcastList: React.StatelessComponent<IPodcastListGridViewOptions<I
     return (
         <React.Fragment>
 
-            <div className="an-single-component with-shadow">
+            <div className="an-single-component with-shadow" style={{ color: "white" }}>
                 <div className="an-component-header">
                     <h2>List:</h2>
                 </div>
                 <div className="an-component-body">
                     <div className="an-helper-block">
                         <div className="scrollable">
-                            <table className="table table-striped">
+                            <table style={{ background: "white", color: "black" }}  className="table table-striped">
                                 <thead>
                                     <tr>
                                         {props.headerColumns != null ? (
@@ -54,8 +54,11 @@ const buildRow = (props: IPodcastListGridViewOptions<IPodcastList>) => (itm: IPo
     return (
         <tbody key={ndx}>
             <tr>
-                <td className="basis-20">{itm.typeName}</td>
-                <td className="basis-20">{itm.details}</td>
+                <td className="basis-20">{itm.podcastName}</td>
+                <td className="basis-20">{itm.podcastDetails}</td>
+                <td className="basis-20">{itm.podcastVideoUpload}</td>
+                <td className="basis-20">{itm.podcastPictureUpload}</td>
+                <td className="basis-20">{itm.podcastUploadDate}</td>
                 <td className="basis-10">
                     {props.showEditButton ? (<button type="button" className="an-btn an-btn-primary" onClick={buttonClick(props, itm.id, "edit")}>Edit</button>) : ("")}
                     {props.showDeleteButton ? (<button type="button" className="an-btn btn-danger" onClick={buttonClick(props, itm.id, "delete")}>Delete</button>) : ("")}

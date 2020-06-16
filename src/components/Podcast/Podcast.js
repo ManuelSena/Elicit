@@ -1,14 +1,16 @@
 import * as React from "react";
-import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../api/PodcastApi";
-import { PodcastForm, PodcastList } from "./index";
+import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../../../src/api/podcast/PodcastApi";
 export class Podcast extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             podcastList: {
                 id: 0,
-                typeName: "",
-                details: ""
+                podcastName: "",
+                podcastDetails: "",
+                podcastUploadDate: new Date(),
+                podcastVideoUpload: "",
+                podcastPictureUpload: "",
             },
             podcastListItems: [],
         };
@@ -46,8 +48,11 @@ export class Podcast extends React.Component {
         this.setState({
             podcastList: {
                 id: 0,
-                typeName: "",
-                details: ""
+                podcastName: "",
+                podcastDetails: "",
+                podcastUploadDate: new Date(),
+                podcastVideoUpload: "",
+                podcastPictureUpload: "",
             },
             podcastListItems: [],
         });
@@ -72,7 +77,9 @@ export class Podcast extends React.Component {
             console.log("PUT");
             this.clearStateAndForm();
             this.loadDataList();
-        }, (err) => { }).catch((err) => { });
+        }, (err) => { }).catch((err) => {
+            console.log(err);
+        });
     }
     onDeleteClick(id) {
         deletePodcastList(id)
@@ -91,19 +98,34 @@ export class Podcast extends React.Component {
         this.loadDataList();
     }
     render() {
-        return (React.createElement("div", { className: "col-md-12" },
-            React.createElement("div", { className: "an-profile-banner", style: {
-                    background: "URL('')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center center",
-                    width: "100%"
-                } }),
-            React.createElement("div", { className: "col-md-12" },
-                React.createElement(PodcastForm, { podcastList: this.state.podcastList, onChange: this.onFieldChange, onSubmit: this.onSubmit, onUpdate: this.onUpdate }),
-                React.createElement(PodcastList, { dataItems: this.state.podcastListItems, onButtonClick: this.listButtonClick, showDeleteButton: true, showEditButton: true, headerColumns: [
-                        { columnName: "Name", columnStyle: "basis-20" },
-                        { columnName: "Details", columnStyle: "basis-20" }
-                    ] }))));
+        return (React.createElement("div", { className: "podcast" },
+            React.createElement("h2", null, "Podcast"),
+            React.createElement("p", null, "COMING SOON!")));
+        //return (
+        //    <div className="container">
+        //        <PodcastForm
+        //            podcastList={this.state.podcastList}
+        //            onChange={this.onFieldChange}
+        //            onSubmit={this.onSubmit}
+        //            onUpdate={this.onUpdate}
+        //        />
+        //        <PodcastList
+        //            dataItems={this.state.podcastListItems}
+        //            onButtonClick={this.listButtonClick}
+        //            showDeleteButton={true}
+        //            showEditButton={true}
+        //            headerColumns={[
+        //                { columnName: "Name", columnStyle: "basis-20" },
+        //                { columnName: "Details", columnStyle: "basis-20" },
+        //                { columnName: "Upload Video", columnStyle: "basis-20" },
+        //                { columnName: "Upload Picture", columnStyle: "basis-20" },
+        //                { columnName: "Upload Date", columnStyle: "basis-20" }
+        //            ]}
+        //        />
+        //        <div>
+        //        </div>
+        //    </div>
+        //)
     }
 }
 //# sourceMappingURL=Podcast.js.map

@@ -1,4 +1,4 @@
-﻿import { IPodcastList } from "../../../src/components/Podcast/Podcast";
+﻿import { IPodcastList } from "../../Components/Interfaces/index";
 import { apiExecute } from "../../../src/api/apiExecute";
 
 const baseURL = "/";

@@ -1,18 +1,15 @@
 ﻿import * as React from "react";
-import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../api/PodcastApi";
+import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../../../src/api/podcast/PodcastApi";
 import { PodcastForm, PodcastList } from "./index";
+import { GrayBanner } from "../Banners/GreyBanner";
+import { FooterContainer } from "../Footer/FooterContainer";
+import { IPodcastList } from "../../Components/Interfaces/index";
+import { DropDownList } from "../../common/components/form/dropdownlist";
 
 export interface IPodcastListState {
     podcastList: IPodcastList;
     podcastListItems: IPodcastList[];
 }
-
-export interface IPodcastList {
-    id: number;
-    typeName: string;
-    details: string;
-}
-
 
 export class Podcast extends React.Component<{}, IPodcastListState>{
     constructor(props) {
@@ -20,8 +17,12 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
         this.state = {
             podcastList: {
                 id: 0,
-                typeName: "",
-                details: ""
+                podcastName: "",
+                podcastDetails: "",
+                podcastUploadDate: new Date(),
+                podcastVideoUpload: "",
+                podcastPictureUpload: "",
+
             },
             podcastListItems: [],
 
@@ -71,8 +72,12 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
         this.setState({
             podcastList: {
                 id: 0,
-                typeName: "",
-                details: ""
+                podcastName: "",
+                podcastDetails: "",
+                podcastUploadDate: new Date(),
+                podcastVideoUpload: "",
+                podcastPictureUpload: "",
+
             },
             podcastListItems: [],
 
@@ -99,7 +104,9 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
                 console.log("PUT")
                 this.clearStateAndForm();
                 this.loadDataList();
-            }, (err) => { }).catch((err) => { });
+            }, (err) => { }).catch((err) => {
+                console.log(err);
+            });
     }
 
     private onDeleteClick(id) {
@@ -118,41 +125,48 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
     }
 
     public componentDidMount() {
+       
+
         this.loadDataList();
     }
 
     public render() {
+
         return (
-            <div className="col-md-12">
-                <div className="an-profile-banner" style={{
-                    background: "URL('')",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center center",
-                    width: "100%"
-                }}>
-                </div>
-                <div className="col-md-12">
-                    <PodcastForm
-                        podcastList={this.state.podcastList}
-                        onChange={this.onFieldChange}
-                        onSubmit={this.onSubmit}
-                        onUpdate={this.onUpdate}
-                    />
-
-                    <PodcastList
-                        dataItems={this.state.podcastListItems}
-                        onButtonClick={this.listButtonClick}
-                        showDeleteButton={true}
-                        showEditButton={true}
-                        headerColumns={[
-                            { columnName: "Name", columnStyle: "basis-20" },
-                            { columnName: "Details", columnStyle: "basis-20" }
-                        ]}
-                    />
-                </div>
-
+            
+            <div className="podcast">
+                <h2>Podcast</h2>
+               
+                <p>COMING SOON!</p>
             </div>
-        )
+            )
+        //return (
+        //    <div className="container">
+        //        <PodcastForm
+        //            podcastList={this.state.podcastList}
+        //            onChange={this.onFieldChange}
+        //            onSubmit={this.onSubmit}
+        //            onUpdate={this.onUpdate}
+        //        />
+
+        //        <PodcastList
+        //            dataItems={this.state.podcastListItems}
+        //            onButtonClick={this.listButtonClick}
+        //            showDeleteButton={true}
+        //            showEditButton={true}
+        //            headerColumns={[
+        //                { columnName: "Name", columnStyle: "basis-20" },
+        //                { columnName: "Details", columnStyle: "basis-20" },
+        //                { columnName: "Upload Video", columnStyle: "basis-20" },
+        //                { columnName: "Upload Picture", columnStyle: "basis-20" },
+        //                { columnName: "Upload Date", columnStyle: "basis-20" }
+        //            ]}
+        //        />
+
+        //        <div>
+        //        </div>
+        //    </div>
+        //)
     }
 
 }

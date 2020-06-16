@@ -4,6 +4,7 @@ using System.Data;
 
 using ElicitDb.EDbTools;
 using ElicitPodcast.Models.Response.Podcast;
+using System.Data.SqlClient;
 
 namespace ElicitPodcast.Services.Podcast
 {
@@ -11,7 +12,7 @@ namespace ElicitPodcast.Services.Podcast
     {
         public List<Podcast> ReadAll()
         {
-            return Adapter.LoadObject<Podcast>("dbo.Elicit_Podcast_SelectAll");
+            return Adapter.LoadObject<Podcast>("dbo.Elicit_Podcast_Select_All");
         }
 
         public Podcast ReadById(int id)
@@ -23,13 +24,19 @@ namespace ElicitPodcast.Services.Podcast
 
         public int Post(PodcastAddRequest model)
         {
+                      
             int id = 0;
             Adapter.ExecuteQuery("Elicit_Podcast_Insert",
                 new[]
                 {
-                    SqlDbParameter.Instance.BuildParameter("@typeName", model.TypeName, SqlDbType.NVarChar),
-                    SqlDbParameter.Instance.BuildParameter("@details", model.Details, SqlDbType.NVarChar),
+
+                    SqlDbParameter.Instance.BuildParameter("@podcastName", model.PodcastName, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@podcastDetails", model.PodcastDetails, SqlDbType.NVarChar),
                     SqlDbParameter.Instance.BuildParameter("@Id", 0, System.Data.SqlDbType.Int, 0, ParameterDirection.Output),
+                    SqlDbParameter.Instance.BuildParameter("@podcastUploadDate", model.PodcastUploadDate, SqlDbType.DateTime2),
+                    SqlDbParameter.Instance.BuildParameter("@podcastVideoUpload", model.PodcastVideoUpload, SqlDbType.NVarChar),
+                    SqlDbParameter.Instance.BuildParameter("@podcastPictureUpload", model.PodcastPictureUpload, SqlDbType.NVarChar)
+
                 },
                 (parameters =>
                 {
@@ -40,19 +47,34 @@ namespace ElicitPodcast.Services.Podcast
 
         public int Put(PodcastUpdateRequest model)
         {
-            int id = 0;
-            Adapter.ExecuteQuery("Elicit_Podcast_Update",
-                new[]
-                {
-                    SqlDbParameter.Instance.BuildParameter("@TypeName", model.TypeName, SqlDbType.NVarChar),
-                    SqlDbParameter.Instance.BuildParameter("@Details", model.Details, SqlDbType.NVarChar),
-                    SqlDbParameter.Instance.BuildParameter("@Id", model.Id, SqlDbType.Int),
-                },
-                (parameters =>
-                {
-                    id = parameters.GetParamValue<int>("@Id");
-                }));
-            return id;
+            DataProvider.ExecuteNonQuery("dbo.Elicit_Podcast_Update",
+              inputParamMapper: delegate (SqlParameterCollection paramCollection)
+              {
+                  paramCollection.AddWithValue("@id", model.Id);
+                  paramCollection.AddWithValue("@podcastName", model.PodcastName);
+                  paramCollection.AddWithValue("@podcastDetails", model.PodcastDetails);
+                  paramCollection.AddWithValue("@podcastVideoUpload", model.PodcastVideoUpload);
+                  paramCollection.AddWithValue("@podcastPictureUpload", model.PodcastPictureUpload);
+                  paramCollection.AddWithValue("@podcastUploadDate", model.PodcastUploadDate);
+              });
+            return 0;
+            //int id = 0;
+            //Adapter.ExecuteQuery("Elicit_Podcast_Update",
+            //    new[]
+            //    {
+            //        SqlDbParameter.Instance.BuildParameter("@podcastName", model.PodcastName, SqlDbType.NVarChar),
+            //        SqlDbParameter.Instance.BuildParameter("@podcastDetails", model.PodcastDetails, SqlDbType.NVarChar),
+            //        SqlDbParameter.Instance.BuildParameter("@Id", 0, System.Data.SqlDbType.Int, 0, ParameterDirection.Output),
+            //        //SqlDbParameter.Instance.BuildParameter("@podcastUploadDate", model.PodcastUploadDate, SqlDbType.DateTime),
+            //        SqlDbParameter.Instance.BuildParameter("@podcastVideoUpload", model.PodcastVideoUpload, SqlDbType.NVarChar),
+            //        SqlDbParameter.Instance.BuildParameter("@podcastPictureUpload", model.PodcastPictureUpload, SqlDbType.NVarChar)
+
+            //    },
+            //    (parameters =>
+            //    {
+            //        id = parameters.GetParamValue<int>("@Id");
+            //    }));
+            //return id;
         }
 
         public int Delete(int id)
