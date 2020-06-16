@@ -132,6 +132,13 @@
     <Content Include="assets\img\elicitlogoRED.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="dist\89889688147bd7575d6327160d64e760.svg" />
+    <Content Include="dist\app.js" />
+    <Content Include="dist\appStyles.js" />
+    <Content Include="dist\index.html" />
+    <Content Include="dist\manifest.js" />
+    <Content Include="dist\vendor.js" />
+    <Content Include="dist\vendorStyles.js" />
     <Content Include="elicitRSS.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -145,6 +152,10 @@
     <Content Include="elicitAppleRSS.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="dist\448c34a56d699c29117adc64c43affeb.woff2" />
+    <Content Include="dist\e18bbf611f2a2e43afc071aa2f4e1512.ttf" />
+    <Content Include="dist\f4769f9bdb7466be65088239c12046d1.eot" />
+    <Content Include="dist\fa2772327f55d8198301fdb8bcfc8158.woff" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
