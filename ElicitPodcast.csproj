@@ -179,6 +179,13 @@
     <Compile Include="Controllers\Api\PrivatePolicy\PrivatePolicyPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\Podcast\PodcastController.cs" />
+    <Compile Include="Db\EDbAdapter\EDbAdapter.cs" />
+    <Compile Include="Db\EDbAdapter\IEDataAdapter.cs" />
+    <Compile Include="Db\EDbAdapter\IEDbAdapter.cs" />
+    <Compile Include="Db\EDbTools\DataMapper.cs" />
+    <Compile Include="Db\EDbTools\SqlEDbParameter.cs" />
+    <Compile Include="Db\Interfaces\IDataProvider.cs" />
+    <Compile Include="Db\Providers\SqlDataProvider.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -293,12 +300,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Users\Manuel\source\repos\ElicitDb\ElicitDb\ElicitDb.csproj">
-      <Project>{1054e8dc-2fb4-4ae1-9ccd-a0a99942b16a}</Project>
-      <Name>ElicitDb</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

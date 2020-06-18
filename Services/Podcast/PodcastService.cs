@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Data;
-
-using ElicitDb.EDbTools;
+using EDbTools;
 using ElicitPodcast.Models.Response.Podcast;
 using System.Data.SqlClient;
+using Services;
 
 namespace ElicitPodcast.Services.Podcast
 {
