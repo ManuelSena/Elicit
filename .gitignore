@@ -4,5 +4,7 @@
 
 /bin
 /dist
+/db
+/services/BaseService.cs
 /node_modules
 /obj/Debug
