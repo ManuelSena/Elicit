@@ -17,7 +17,7 @@ export class Header extends React.Component<{}, {}>{
                 <div className="nav">
                     <div className="eheader">
                         <strong>
-                            <a href="/home" className="glow pull-left">
+                            <a href="/" className="glow pull-left">
                                 Elicit</a>
                         </strong>
                     </div>
