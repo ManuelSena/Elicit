@@ -23,7 +23,7 @@ export class Header extends React.Component<{}, {}>{
                     </div>
 
                     <div className="mainListDiv">
-                        <Link to="/home" className="btn">Home</Link>
+                        <Link to="/" className="btn">Home</Link>
                         <Link to="/podcast" className="btn ">Podcast</Link>
                         <Link to="/about" className="btn ">About</Link>
                         <Link to="/rss" className="btn">RSS Feed</Link>
