@@ -11,11 +11,11 @@ export const AppRouter = () => {
     return (React.createElement(Router, { history: hashHistory },
         React.createElement(Route, { path: "/", component: App },
             React.createElement(IndexRoute, { component: HomePage }),
-            React.createElement(Route, { path: "#/home", component: HomePage }),
-            React.createElement(Route, { path: "#/podcast", component: Podcast }),
-            React.createElement(Route, { path: "#/about", component: AboutUsPage }),
-            React.createElement(Route, { path: "#/rss", component: RssFeed }),
-            React.createElement(Route, { path: "#/contactus", component: ContactUs }),
-            React.createElement(Route, { path: "#/privatepolicy", component: PrivatePolicy }))));
+            React.createElement(Route, { path: "/home", component: HomePage }),
+            React.createElement(Route, { path: "/podcast", component: Podcast }),
+            React.createElement(Route, { path: "/about", component: AboutUsPage }),
+            React.createElement(Route, { path: "/rss", component: RssFeed }),
+            React.createElement(Route, { path: "/contactus", component: ContactUs }),
+            React.createElement(Route, { path: "/privatepolicy", component: PrivatePolicy }))));
 };
 //# sourceMappingURL=router.js.map
