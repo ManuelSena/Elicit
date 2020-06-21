@@ -1,5 +1,5 @@
 ﻿import * as React from "react";
-import { Route, browserHistory, IndexRoute, Router } from "react-router";
+import { Route, browserHistory, IndexRoute, Router, hashHistory } from "react-router";
 import { App } from "./app";
 import { HomePage } from "./components/Home/Home";
 import { Podcast } from "./components/Podcast/Podcast";
@@ -11,7 +11,7 @@ import { ContactUs } from "./components/ContactUs/ContactUs";
 
 export const AppRouter: React.StatelessComponent<{}> = () => {
     return (
-        <Router history={browserHistory}>
+        <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={HomePage} />
                 <Route path="/home" component={HomePage} />
