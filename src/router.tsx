@@ -14,12 +14,12 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={HomePage} />
-                <Route path="#/home" component={HomePage} />
-                <Route path="#/podcast" component={Podcast} />
-                <Route path="#/about" component={AboutUsPage} />
-                <Route path="#/rss" component={RssFeed} />
-                <Route path="#/contactus" component={ContactUs} />
-                <Route path="#/privatepolicy" component={PrivatePolicy} />
+                <Route path="/home" component={HomePage} />
+                <Route path="/podcast" component={Podcast} />
+                <Route path="/about" component={AboutUsPage} />
+                <Route path="/rss" component={RssFeed} />
+                <Route path="/contactus" component={ContactUs} />
+                <Route path="/privatepolicy" component={PrivatePolicy} />
                 
             </Route>
         

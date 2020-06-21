@@ -14,11 +14,11 @@ export class Header extends React.Component {
                     React.createElement("strong", null,
                         React.createElement("a", { href: "#", className: "glow pull-left" }, "Elicit"))),
                 React.createElement("div", { className: "mainListDiv" },
-                    React.createElement(Link, { to: "/", className: "btn" }, "Home"),
-                    React.createElement(Link, { to: "/podcast", className: "btn " }, "Podcast"),
-                    React.createElement(Link, { to: "/about", className: "btn " }, "About"),
-                    React.createElement(Link, { to: "/rss", className: "btn" }, "RSS Feed"),
-                    React.createElement(Link, { to: "/contactus", className: "btn" }, "Contact Us"))),
+                    React.createElement(Link, { to: "/#/home", className: "btn" }, "Home"),
+                    React.createElement(Link, { to: "/#/podcast", className: "btn " }, "Podcast"),
+                    React.createElement(Link, { to: "/#/about", className: "btn " }, "About"),
+                    React.createElement(Link, { to: "/#/rss", className: "btn" }, "RSS Feed"),
+                    React.createElement(Link, { to: "/#/contactus", className: "btn" }, "Contact Us"))),
             React.createElement(FooterContainer, null)));
     }
 }
