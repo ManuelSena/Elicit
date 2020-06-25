@@ -11,7 +11,7 @@ import { ContactUs } from "./components/ContactUs/ContactUs";
 
 export const AppRouter: React.StatelessComponent<{}> = () => {
     return (
-        <Router history={hashHistory}>
+        <Router history={browserHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={HomePage} />
                 <Route path="/home" component={HomePage} />
