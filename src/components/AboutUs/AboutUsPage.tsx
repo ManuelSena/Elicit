@@ -48,7 +48,9 @@ export class AboutUsPage extends React.Component<{}, IAboutUsState> {
                 console.log(err);
             })
     }
-
+                    //<AboutUsForm
+                //    aboutUs={this.state.aboutUsListItems}
+                ///>
     public render() {
         return (
             <div style={{ textAlign: "center", color: "#f8f8ff", width: "100%", padding: "30px 30px", backgroundColor: "#000000" }}>
@@ -57,9 +59,7 @@ export class AboutUsPage extends React.Component<{}, IAboutUsState> {
         
 
 
-                <AboutUsForm
-                    aboutUs={this.state.aboutUsListItems}
-                />
+
              </div>
                )
     }
