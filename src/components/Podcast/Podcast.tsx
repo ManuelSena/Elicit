@@ -134,7 +134,7 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
 
         return (
             
-            <div style="padding-top: 80px" className="podcast">
+            <div className="podcast">
                 <h2>Podcast</h2>
                
                 <p>COMING SOON!</p>

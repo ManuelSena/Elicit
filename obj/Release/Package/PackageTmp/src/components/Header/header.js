@@ -12,7 +12,7 @@ export class Header extends React.Component {
             React.createElement("div", { className: "nav" },
                 React.createElement("div", { className: "eheader" },
                     React.createElement("strong", null,
-                        React.createElement("a", { href: "#", className: "glow pull-left" }, "Elicit"))),
+                        React.createElement("a", { href: "/home", className: "glow pull-left" }, "Elicit"))),
                 React.createElement("div", { className: "mainListDiv" },
                     React.createElement(Link, { to: "/home", className: "btn" }, "Home"),
                     React.createElement(Link, { to: "/podcast", className: "btn " }, "Podcast"),
