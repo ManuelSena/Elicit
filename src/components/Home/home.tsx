@@ -3,6 +3,7 @@ import { Podcast } from "../Podcast/index";
 import { AboutUsPage } from "../AboutUs/AboutUsPage";
 import { FooterContainer } from "../Footer/FooterContainer";
 import { GrayBanner } from "../Banners/GreyBanner";
+import { AboutUsForm } from "../AboutUs/AboutUsForm";
 //import { ContactUs } from "../ContactUs/ContactUs";
 
 export const HomePage: React.StatelessComponent<{}> = () => {
@@ -13,9 +14,10 @@ export const HomePage: React.StatelessComponent<{}> = () => {
             <div className="home hero-image">
                 <a className="btn contactus" href="mailto:Manny@elicit.us">Contact Us</a>
             </div>
-            <GrayBanner />
+            <AboutUsPage />
+            <div>
             <Podcast />
-            
+            </div>
         </React.Fragment>
 
     );
