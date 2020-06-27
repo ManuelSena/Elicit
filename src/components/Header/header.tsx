@@ -26,9 +26,12 @@ export class Header extends React.Component<{}, {}>{
                         <Link to="/home" className="btn">Home</Link>
                         <Link to="/podcast" className="btn ">Podcast</Link>
                         <Link to="/about" className="btn ">About</Link>
-                        <Link to="/rss" className="btn">RSS Feed</Link>
                         <Link to="/contactus" className="btn">Contact Us</Link>
+                     
                     </div>
+
+
+                
                 </div>
 
                 <FooterContainer />

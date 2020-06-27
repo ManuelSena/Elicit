@@ -15,6 +15,7 @@ body > container
 
 html,
 body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3-us-west-1.amazonaws.com/elicit.us/App+Images/chalkboard.jpg");
     padding: 0;
     box-sizing: border-box;
     font-family: "Quicksand", sans-serif;
@@ -25,7 +26,6 @@ body {
     background-size: cover;
     width: 100%;
     height: 100%;
-    background: url('https://s3-us-west-1.amazonaws.com/elicit.us/App+Images/chalkboard.jpg');
 }
 /*-- Inspiration taken from abdo steif -->
 /* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
@@ -39,8 +39,7 @@ body {
     color: white;
 }
 .podcast {
-    padding-top: 80px;
-    padding-bottom: 50px;
+    padding-bottom: 70px;
     color: white;
     text-align: center;
 }
@@ -65,14 +64,18 @@ body {
 }
 
 /* Navbar section */
+
+.tg-main-section {
+    background: url('https://s3-us-west-1.amazonaws.com/elicit.us/App+Images/chalkboard.jpg');
+}
+
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://s3-us-west-1.amazonaws.com/elicit.us/elicitLogo.jpg");
-    height: 250px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     /*position: relative;*/
-    background-size: 50%;
+    background-size: 45%;
 }
 
     .hero-image a {
@@ -83,7 +86,7 @@ body {
     width: 100%;
     height: 85px;
     position: fixed;
-    line-height: 65px;
+    line-height: 35px;
     text-align: right;
     top: 0;
     left: 0;
@@ -104,7 +107,7 @@ body {
         }
 
             .nav div.logo a:hover {
-                color: #00E676;
+                color: black;
             }
 
     .nav div.main_list {
@@ -141,8 +144,13 @@ body {
 .mainListDiv a .btn:active {
 }
 
-.social-media a{
-margin-left: 5px;
+.eheader {
+
+
+}
+
+.social-media a {
+    margin-left: 5px;
 }
 
 .meetthesegents {
@@ -153,7 +161,7 @@ margin-left: 5px;
     color:white;
 }
 .contactus {
-    
+ 
     color:white;
     margin-top: 50px;
     -webkit-animation: glow 1s ease-in-out infinite alternate;
@@ -165,7 +173,6 @@ margin-left: 5px;
 }
 
 .nav {
-    padding-bottom: 20px;
     -webkit-transition: all 0.4s ease;
     transition: all 0.4s ease;
 }
@@ -220,9 +227,14 @@ a:hover {
     width: 100px;
 
 }
+.tg-commentform {
+    color: white;
+    padding-bottom: 20px;
+    
+}
 .home {
     background-color: black;
-    padding-top: 150px;
+    padding-top: 100px;
     text-align: center;
     color: white;
     font-size: 30px;
@@ -233,6 +245,7 @@ a:hover {
     width: 100%;
     left: 0px;
     bottom: 0px;
+
 
     /*height: 70px;*/
     background-color: #000000;

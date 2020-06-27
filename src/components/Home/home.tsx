@@ -10,11 +10,12 @@ export const HomePage: React.StatelessComponent<{}> = () => {
 
     return (
         <React.Fragment>
-
             <div className="home hero-image">
                 <a className="btn contactus" href="mailto:Manny@elicit.us">Contact Us</a>
             </div>
-            <AboutUsPage />
+            <div>
+                <AboutUsPage />
+            </div>
             <div>
             <Podcast />
             </div>

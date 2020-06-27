@@ -6,7 +6,8 @@ export const HomePage = () => {
     return (React.createElement(React.Fragment, null,
         React.createElement("div", { className: "home hero-image" },
             React.createElement("a", { className: "btn contactus", href: "mailto:Manny@elicit.us" }, "Contact Us")),
-        React.createElement(AboutUsPage, null),
+        React.createElement("div", null,
+            React.createElement(AboutUsPage, null)),
         React.createElement("div", null,
             React.createElement(Podcast, null))));
 };

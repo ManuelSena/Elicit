@@ -72,10 +72,17 @@ export class ContactUs extends React.Component<{}, IContactUsState> {
     public render() {
         return (
             <div className="col-md-6 col-sm-12 col-xs-12">
+                
                 <form action="#" method="post" className="tg-commentform help-form" id="tg-commentform">
                     <fieldset>
                         <div className="form-group">
-                            <div className="tg-section-heading"><h2>Contact Elicit</h2></div>
+                          <div className="tg-section-heading"><h2>Contact Elicit</h2></div>
+
+                            <p><strong style={{ color: "red" }} className="contactus">NOTE:</strong> Please use this <a className="contactus" href="mailto:Manny@elicit.us">Contact Us HERE</a>. We'd be stoked to hear from you!</p>
+
+
+
+
                             <div className="form-group">
                                 <Input
                                     type="text"
@@ -115,7 +122,7 @@ export class ContactUs extends React.Component<{}, IContactUsState> {
                             <div className="form-group">
                                 <button
                                     type="button"
-                                    className="btn contactus"
+                                    className="contactus"
                                     onClick={this.sendEmailButtonClick}
                                 >Send</button>
                                 </div>

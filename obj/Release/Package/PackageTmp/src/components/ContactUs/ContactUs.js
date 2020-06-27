@@ -43,6 +43,11 @@ export class ContactUs extends React.Component {
                     React.createElement("div", { className: "form-group" },
                         React.createElement("div", { className: "tg-section-heading" },
                             React.createElement("h2", null, "Contact Elicit")),
+                        React.createElement("p", null,
+                            React.createElement("strong", { style: { color: "red" }, className: "contactus" }, "NOTE:"),
+                            " Please use this ",
+                            React.createElement("a", { className: "contactus", href: "mailto:Manny@elicit.us" }, "Contact Us HERE"),
+                            ". We'd be stoked to hear from you!"),
                         React.createElement("div", { className: "form-group" },
                             React.createElement(Input, { type: "text", label: "Name", name: "name", value: this.state.contactUs.name, placeholder: "Name", onChange: this.onFieldChange }),
                             React.createElement("div", { className: "form-group" },
@@ -54,7 +59,7 @@ export class ContactUs extends React.Component {
                                     "rows=",
                                     8)),
                             React.createElement("div", { className: "form-group" },
-                                React.createElement("button", { type: "button", className: "btn contactus", onClick: this.sendEmailButtonClick }, "Send"))))))));
+                                React.createElement("button", { type: "button", className: "contactus", onClick: this.sendEmailButtonClick }, "Send"))))))));
     }
 }
 //# sourceMappingURL=ContactUs.js.map
