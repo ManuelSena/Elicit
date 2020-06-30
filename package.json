@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack --mode production",
+    "build": "NODE_ENV=production webpack --config ./configs/webpack.config.prod.js",
     "test": "react-scripts test",
     "preinstall": "npm run build",
     "deploy": "npm run build",
