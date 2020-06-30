@@ -86,8 +86,8 @@ C:\ElicitPodcast\ElicitPodcast\bin\System.Web.Webpages.Deployment.xml
 C:\ElicitPodcast\ElicitPodcast\bin\System.Web.Webpages.Razor.xml
 C:\ElicitPodcast\ElicitPodcast\bin\System.Web.Helpers.xml
 C:\ElicitPodcast\ElicitPodcast\bin\System.Web.Mvc.xml
-C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.csprojResolveAssemblyReference.cache
 C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.csproj.CoreCompileInputs.cache
 C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.csproj.CopyComplete
 C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.dll
 C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.pdb
+C:\ElicitPodcast\ElicitPodcast\obj\Release\ElicitPodcast.csprojResolveAssemblyReference.cache

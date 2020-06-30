@@ -11,7 +11,7 @@ export const HomePage: React.StatelessComponent<{}> = () => {
     return (
         <React.Fragment>
             <div className="home hero-image">
-                <a className="btn contactus" href="mailto:Manny@elicit.us">Contact Us</a>
+                <a className="btn warning contactus" href="mailto:Manny@elicit.us">Contact Us</a>
             </div>
             <div>
                 <AboutUsPage />

@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='Run - Development' />
+﻿/// <binding BeforeBuild='Run - Production' ProjectOpened='Run - Production' />
 "use strict";
 var path = require("path");
 var HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -79,9 +79,16 @@ module.exports = (env) => {
         },
         devtool: "inline-source-map",
         plugins: [
+
+            new webpack.DefinePlugin({
+                'process.env': {
+                    // This has effect on the react lib size
+                    'NODE_ENV': JSON.stringify('production'),
+                }
+            }),
             new HtmlWebpackPlugin({
                 filename: "index.html",
-                template: path.resolve('./index.html'),
+                template: path.resolve('index.html'),
                 //hash: true,
             }),
             new webpack.optimize.CommonsChunkPlugin({

@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -p --env production",
+    "build": "NODE_ENV=production webpack --config ./webpack.production.config.js",
     "test": "react-scripts test",
     "preinstall": "npm run build",
-    "deploy": "webpack -p --env production",
+    "deploy": "npm run build",
     "build-prod": "webpack -p --env production",
     "eject": "react-scripts eject"
   },
