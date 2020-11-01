@@ -48,9 +48,11 @@ export class ContactUs extends React.Component<{}, IContactUsState> {
     private sendEmailButtonClick() {
 
         ContactUsApi.sendEmailContactUs(this.state.contactUs)
-
+       
             .then((response) => {
+            
                 this.setState({
+                    
                     ...this.state,
                     contactUs: {
                         name: "",
@@ -58,7 +60,7 @@ export class ContactUs extends React.Component<{}, IContactUsState> {
                         topic: "",
                         message: ""
                     }
-
+                    
                 })
             })
 
@@ -73,7 +75,7 @@ export class ContactUs extends React.Component<{}, IContactUsState> {
         return (
             <div className="col-md-6 col-sm-12 col-xs-12">
                 
-                <form action="#" method="post" className="tg-commentform help-form" id="tg-commentform">
+                <form action="#" className="tg-commentform help-form" id="tg-commentform">
                     <fieldset>
                         <div className="form-group">
                           <div className="tg-section-heading"><h2>Contact Elicit</h2></div>

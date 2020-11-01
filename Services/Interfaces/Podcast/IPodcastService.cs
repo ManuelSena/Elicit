@@ -11,6 +11,6 @@ namespace ElicitPodcast.Services.Podcast
         int Post(PodcastAddRequest model);
         int Put(PodcastUpdateRequest model);
         int Delete(int id);
-       
+
     }
 }

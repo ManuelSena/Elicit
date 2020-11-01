@@ -38,7 +38,7 @@ export class ContactUs extends React.Component {
     }
     render() {
         return (React.createElement("div", { className: "col-md-6 col-sm-12 col-xs-12" },
-            React.createElement("form", { action: "#", method: "post", className: "tg-commentform help-form", id: "tg-commentform" },
+            React.createElement("form", { action: "#", className: "tg-commentform help-form", id: "tg-commentform" },
                 React.createElement("fieldset", null,
                     React.createElement("div", { className: "form-group" },
                         React.createElement("div", { className: "tg-section-heading" },

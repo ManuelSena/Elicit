@@ -8,6 +8,7 @@ import { RssFeed } from "./components/RssFeed/RssFeed";
 import { FooterContainer } from "./components/Footer/FooterContainer";
 import { PrivatePolicy } from "./components/PrivatePolicy/PrivatePolicy";
 import { ContactUs } from "./components/ContactUs/ContactUs";
+import { PodcastHostPage } from "./components/Podcast/PodcastHostPage";
 
 export const AppRouter: React.StatelessComponent<{}> = () => {
     return (
@@ -16,7 +17,7 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
                 <IndexRoute component={HomePage} />
                 <Route path="/home" component={HomePage} />
                 <Route path="/podcast" component={Podcast} />
-                <Route path="/about" component={AboutUsPage} />
+                <Route path="/about" component={PodcastHostPage} />
                 <Route path="/contactus" component={ContactUs} />
                 <Route path="/privatepolicy" component={PrivatePolicy} />
                 

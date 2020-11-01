@@ -1,5 +1,6 @@
 import * as React from "react";
 import { getPodcastList, postPodcastList, updatePodcastList, deletePodcastList } from "../../../src/api/podcast/PodcastApi";
+import Iframe from 'react-iframe';
 export class Podcast extends React.Component {
     constructor(props) {
         super(props);
@@ -100,7 +101,7 @@ export class Podcast extends React.Component {
     render() {
         return (React.createElement("div", { className: "podcast" },
             React.createElement("h2", null, "Podcast"),
-            React.createElement("p", null, "COMING SOON!")));
+            React.createElement(Iframe, { url: "https://oembed.libsyn.com/embed?item_id=16631408", src: "//html5-player.libsyn.com/embed/episode/id/16631408/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/f30c0c/", width: "75%", height: "150px", id: "punchBoxProduction", display: "inline", className: "betoPodcast" })));
         //return (
         //    <div className="container">
         //        <PodcastForm

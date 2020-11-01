@@ -9,107 +9,107 @@ namespace Services
 {
     public class BaseService
     {
-        public IDataProvider DataProvider { get; set; }
-        public class EDbAdapter
-        {
-            public IDbConnection Conn { get; private set; }
-            public IDbCommand Cmd { get; private set; }
-
-            public EDbAdapter(IDbCommand command, IDbConnection conn)
+            public IDataProvider DataProvider { get; set; }
+            public class EDbAdapter
             {
-                Cmd = command;
-                Conn = conn;
-            }
+                public IDbConnection Conn { get; private set; }
+                public IDbCommand Cmd { get; private set; }
 
-            public List<T> LoadObject<T>(string storedProcedure,
-                IDbDataParameter[] parameters = null) where T : class
-            {
-                List<T> list = new List<T>();
-                using (IDbConnection conn = Conn)
-                using (IDbCommand cmd = Cmd)
+                public EDbAdapter(IDbCommand command, IDbConnection conn)
                 {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
+                    Cmd = command;
+                    Conn = conn;
+                }
 
-                    cmd.Connection = conn;
-                    cmd.CommandTimeout = 5000;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = storedProcedure;
-
-                    if (parameters != null)
+                public List<T> LoadObject<T>(string storedProcedure,
+                    IDbDataParameter[] parameters = null) where T : class
+                {
+                    List<T> list = new List<T>();
+                    using (IDbConnection conn = Conn)
+                    using (IDbCommand cmd = Cmd)
                     {
-                        foreach (IDbDataParameter parameter in parameters)
+                        if (conn.State != ConnectionState.Open)
+                            conn.Open();
+
+                        cmd.Connection = conn;
+                        cmd.CommandTimeout = 5000;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = storedProcedure;
+
+                        if (parameters != null)
                         {
-                            cmd.Parameters.Add(parameter);
+                            foreach (IDbDataParameter parameter in parameters)
+                            {
+                                cmd.Parameters.Add(parameter);
+                            }
+                        }
+
+                        IDataReader reader = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            list.Add(DataMapper<T>.Instance.MapToObject(reader));
                         }
                     }
+                    return list;
+                }
 
-                    IDataReader reader = cmd.ExecuteReader();
-                    while (reader.Read())
+                public int ExecuteQuery(string storedProcedure,
+                    IDbDataParameter[] parameters,
+                    Action<IDbDataParameter[]> returnParameters = null)
+                {
+                    using (IDbConnection conn = Conn)
+                    using (IDbCommand cmd = Cmd)
                     {
-                        list.Add(DataMapper<T>.Instance.MapToObject(reader));
+                        if (conn.State != ConnectionState.Open)
+                            conn.Open();
+                        cmd.Connection = conn;
+                        cmd.CommandTimeout = 5000;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = storedProcedure;
+                        foreach (IDbDataParameter parameter in parameters)
+                            cmd.Parameters.Add(parameter);
+                        int returnValue = cmd.ExecuteNonQuery();
+
+                        returnParameters?.Invoke(parameters);
+                        return returnValue;
                     }
                 }
-                return list;
-            }
 
-            public int ExecuteQuery(string storedProcedure,
-                IDbDataParameter[] parameters,
-                Action<IDbDataParameter[]> returnParameters = null)
-            {
-                using (IDbConnection conn = Conn)
-                using (IDbCommand cmd = Cmd)
+
+                public T ExecuteDbScalar<T>(string storedProcedure, IDbDataParameter[] parameters)
                 {
-                    if (conn.State != ConnectionState.Open)
-                        conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandTimeout = 5000;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = storedProcedure;
-                    foreach (IDbDataParameter parameter in parameters)
-                        cmd.Parameters.Add(parameter);
-                    int returnValue = cmd.ExecuteNonQuery();
+                    using (IDbConnection conn = Conn)
+                    using (IDbCommand cmd = Cmd)
+                    {
+                        if (Conn.State != ConnectionState.Open)
+                            conn.Open();
+                        cmd.Connection = conn;
+                        cmd.CommandTimeout = 5000;
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = storedProcedure;
 
-                    returnParameters?.Invoke(parameters);
-                    return returnValue;
+                        foreach (IDbDataParameter parameter in parameters)
+                            cmd.Parameters.Add(parameter);
+
+                        object obj = cmd.ExecuteScalar();
+                        return (T)obj;
+                    }
                 }
             }
 
-
-            public T ExecuteDbScalar<T>(string storedProcedure, IDbDataParameter[] parameters)
+            public EDbAdapter Adapter
             {
-                using (IDbConnection conn = Conn)
-                using (IDbCommand cmd = Cmd)
+
+                get
                 {
-                    if (Conn.State != ConnectionState.Open)
-                        conn.Open();
-                    cmd.Connection = conn;
-                    cmd.CommandTimeout = 5000;
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = storedProcedure;
 
-                    foreach (IDbDataParameter parameter in parameters)
-                        cmd.Parameters.Add(parameter);
-
-                    object obj = cmd.ExecuteScalar();
-                    return (T)obj;
+                    return new EDbAdapter(new SqlCommand(),
+                        new SqlConnection("Data Source = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3"));
+                    // Data Source = elicitapp.cxtivv0uiqhh.us - west - 1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3
+                    // Server = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com,1433; Database = ElicitWeb; User Id = masterd; Password = 
+                    // Server=localhost\\SQLEXPRESS;" + "Initial Catalog = Elicit;" + "Integrated Security = True;
                 }
             }
+
         }
-
-        public EDbAdapter Adapter
-        {
-
-            get
-            {
-           
-                return new EDbAdapter(new SqlCommand(),
-                    new SqlConnection("Data Source = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3"));
-                // Data Source = elicitapp.cxtivv0uiqhh.us - west - 1.rds.amazonaws.com; Initial Catalog = ElicitWeb; Persist Security Info = True; User ID = masterd; Password = joker13ms3
-                // Server = elicitapp.cxtivv0uiqhh.us-west-1.rds.amazonaws.com,1433; Database = ElicitWeb; User Id = masterd; Password = 
-                // Server=localhost\\SQLEXPRESS;" + "Initial Catalog = Elicit;" + "Integrated Security = True;
-            }
-        }
-
-    }
 }

@@ -5,6 +5,7 @@ import { GrayBanner } from "../Banners/GreyBanner";
 import { FooterContainer } from "../Footer/FooterContainer";
 import { IPodcastList } from "../../Components/Interfaces/index";
 import { DropDownList } from "../../common/components/form/dropdownlist";
+import Iframe from 'react-iframe';
 
 export interface IPodcastListState {
     podcastList: IPodcastList;
@@ -136,8 +137,16 @@ export class Podcast extends React.Component<{}, IPodcastListState>{
             
             <div className="podcast">
                 <h2>Podcast</h2>
-               
-                <p>COMING SOON!</p>
+                <Iframe url="https://oembed.libsyn.com/embed?item_id=16631408"
+                    src="//html5-player.libsyn.com/embed/episode/id/16631408/height/90/theme/custom/thumbnail/yes/direction/backward/render-playlist/no/custom-color/f30c0c/"
+                    width="75%"
+                    height="150px"
+                    id="punchBoxProduction"
+                    display="inline"
+                    className="betoPodcast"
+                    />
+             
+ 
             </div>
             )
         //return (

@@ -133,13 +133,6 @@
     <Content Include="assets\img\elicitlogoRED.jpg" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="dist\89889688147bd7575d6327160d64e760.svg" />
-    <Content Include="dist\app.js" />
-    <Content Include="dist\appStyles.js" />
-    <Content Include="dist\index.html" />
-    <Content Include="dist\manifest.js" />
-    <Content Include="dist\vendor.js" />
-    <Content Include="dist\vendorStyles.js" />
     <Content Include="elicitRSS.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -154,10 +147,6 @@
     <Content Include="elicitAppleRSS.xml">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="dist\448c34a56d699c29117adc64c43affeb.woff2" />
-    <Content Include="dist\e18bbf611f2a2e43afc071aa2f4e1512.ttf" />
-    <Content Include="dist\f4769f9bdb7466be65088239c12046d1.eot" />
-    <Content Include="dist\fa2772327f55d8198301fdb8bcfc8158.woff" />
     <Content Include="CNAME" />
     <None Include="Properties\PublishProfiles\ElicitUS - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -178,6 +167,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api\AboutUs\AboutUsController.cs" />
     <Compile Include="Controllers\Api\ContactUs\ContactUsController.cs" />
+    <Compile Include="Controllers\Api\Podcast\PodcastHostController.cs" />
     <Compile Include="Controllers\Api\PrivatePolicy\PrivatePolicyPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Api\Podcast\PodcastController.cs" />
@@ -199,6 +189,8 @@
     <Compile Include="Models\Response\Items\ItemsResponse.cs" />
     <Compile Include="Models\Response\Item\ItemResponse.cs" />
     <Compile Include="Models\Response\Podcast\PodcastAddRequest.cs" />
+    <Compile Include="Models\Response\Podcast\PodcastHostAddRequest.cs" />
+    <Compile Include="Models\Response\Podcast\PodcastHostUpdateRequest.cs" />
     <Compile Include="Models\Response\Podcast\PodcastUpdateRequest.cs" />
     <Compile Include="Models\Response\PrivatePolicy\PrivatePolicyAddRequest.cs" />
     <Compile Include="Models\Response\PrivatePolicy\PrivatePolicyUpdateRequest.cs" />
@@ -215,9 +207,12 @@
     <Compile Include="Services\ContactUs\SendGridDataService.cs" />
     <Compile Include="Services\Interfaces\AboutUs\IAboutUsService.cs" />
     <Compile Include="Services\Interfaces\Email\IGmailService.cs" />
+    <Compile Include="Services\Interfaces\Podcast\IPodcastHostService.cs" />
     <Compile Include="Services\Interfaces\Podcast\IPodcastService.cs" />
     <Compile Include="Services\Interfaces\PrivatePolicy\IPrivatePolicyService.cs" />
     <Compile Include="Services\Podcast\Podcast.cs" />
+    <Compile Include="Services\Podcast\PodcastHost.cs" />
+    <Compile Include="Services\Podcast\PodcastHostService.cs" />
     <Compile Include="Services\Podcast\PodcastService.cs" />
     <Compile Include="Services\PrivatePolicy\PrivatePolicyPage.cs" />
     <Compile Include="Services\PrivatePolicy\PrivatePolicyService.cs" />
@@ -251,12 +246,14 @@
     <Folder Include="Services\Interfaces\ContactUs\" />
     <Folder Include="src\components\Modal\" />
     <Folder Include="Views\Contact\" />
+    <Folder Include="Views\PodcastHost\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="src\api\aboutus\AboutUsApi.tsx" />
     <TypeScriptCompile Include="src\api\apiExecute.tsx" />
     <TypeScriptCompile Include="src\api\contactus\ContactUsApi.tsx" />
     <TypeScriptCompile Include="src\api\podcast\PodcastApi.tsx" />
+    <TypeScriptCompile Include="src\api\podcast\PodcastHostApi.tsx" />
     <TypeScriptCompile Include="src\api\privatepolicy\PrivatePolicyApi.tsx" />
     <TypeScriptCompile Include="src\app.tsx" />
     <TypeScriptCompile Include="src\common\components\form\button.tsx" />
@@ -272,6 +269,7 @@
     <TypeScriptCompile Include="src\components\ContactUs\ContactUsForm.tsx" />
     <TypeScriptCompile Include="src\components\Interfaces\ContactUs\IContactUs.tsx" />
     <TypeScriptCompile Include="src\components\Interfaces\index.tsx" />
+    <TypeScriptCompile Include="src\components\Interfaces\Podcast\IPodcastHostPage.tsx" />
     <TypeScriptCompile Include="src\components\Interfaces\Podcast\IPodcastList.tsx" />
     <TypeScriptCompile Include="src\components\PictureSlides\PictureSlides.tsx" />
     <TypeScriptCompile Include="src\components\Footer\FooterContainer.tsx" />
@@ -279,6 +277,8 @@
     <TypeScriptCompile Include="src\components\Podcast\index.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\Podcast.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\PodcastForm.tsx" />
+    <TypeScriptCompile Include="src\components\Podcast\PodcastHostForm.tsx" />
+    <TypeScriptCompile Include="src\components\Podcast\PodcastHostPage.tsx" />
     <TypeScriptCompile Include="src\components\Podcast\PodcastList.tsx" />
     <TypeScriptCompile Include="src\components\Home\Home.tsx" />
     <TypeScriptCompile Include="src\components\PrivatePolicy\index.tsx" />
