@@ -12,7 +12,7 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "bootstrap": "^3.4.1",
     "csstype": "^2.6.9",
     "html-webpack-plugin": "^2.30.1",
